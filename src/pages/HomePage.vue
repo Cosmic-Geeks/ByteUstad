@@ -16,6 +16,5 @@
     p
         font-family: Alegreya, serif
     a
-        text-decoration: underline
         font-family: Courgette, serif
 </style>
