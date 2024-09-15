@@ -1,5 +1,5 @@
 <script setup lang="ts">
-
+import router from "@/router";
 </script>
 
 <template lang="pug">
@@ -14,9 +14,8 @@
                 li
                     a(href="#")
                         | Categories
-                li
-                    a(href="#")
-                        | Articles
+                li  
+                    | #[a(@click="router.push({name: 'Articles' })") Articles]
                 li
                     a(href="#")
                         | About 
