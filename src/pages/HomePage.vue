@@ -2,7 +2,7 @@
 import router from "@/router";
 import HeaderComponent from "@/components/HeaderComponent.vue";
 
-const navItems = ['Articles', 'Snippets', 'About']
+const navItems = ['Articles', 'Snippets', 'About', 'Resources']
 </script>
 
 <template lang="pug">

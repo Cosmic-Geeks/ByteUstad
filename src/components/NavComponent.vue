@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import router from "@/router";
-const navItems = ['Articles', 'Snippets', 'About']
+const navItems = ['Articles', 'Snippets', 'About', 'Resources']
 </script>
 
 <template lang="pug">
 nav.flex.items-center.text-xl
-    ul.flex.gap-8
-        li(v-for="navItem in navItems" :key="navItem")
+    ul.flex.justify-between.flex-wrap
+        li(v-for="navItem in navItems" :key="navItem").mx-2
             | #[a(@click='router.push({ name: navItem })') {{ navItem }}]
 </template>
 
