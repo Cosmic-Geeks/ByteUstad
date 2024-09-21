@@ -10,8 +10,8 @@ import HeaderComponent from "@/components/HeaderComponent.vue";
         article
             h1 About
             p.
-                This is a project made for people who want to learn to improve
-                their craft by people who want to learn to improve their craft.
+                This is a project made for people who are learning to improve
+                their craft by people who want are learning to improve their craft.
             h2 About this Project
             p.
                 At my job, I faced a lot of issues that were extremely challenging. Although, there are
@@ -107,6 +107,4 @@ import HeaderComponent from "@/components/HeaderComponent.vue";
                 content: none
             img
                 width: 50px
-
 </style>
-
