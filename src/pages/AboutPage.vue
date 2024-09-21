@@ -74,14 +74,39 @@ import HeaderComponent from "@/components/HeaderComponent.vue";
             p
                 em - Mameru Carr
             h2 About the Authors
-            h3 About Akshara A
+            h3#akshara About Akshara A
+            ul.links.flex.flex-wrap.flex-row
+                li
+                    a(href="https://www.linkedin.com/in/akshara-a/" target="_blank")
+                        img(src="/logos/icons8-linkedin.svg")
+                li
+                    a(href="https://github.com/akshara-a" target="_blank")
+                        img(src="/logos/github-mark.svg")
+                li
+                    a(href="https://toherchoice.blogspot.com" target="_blank")
+                        img(src="/logos/icons8-blogger.svg")
             p.
-                I am a software developer at #[a(href="#") Propel]
-            h3 About Mameru Carr
+                I am a software developer at #[a(href="https://www.linkedin.com/company/propelinc/") Propel Technology Group Inc.]
+            p.
+                I am a Technology Management Specialist with a passion for inspiring the next generation. I’ve mentored over 2K individuals in areas like Programming, Web Development, Database Management, UI/UX design, Graphic design, Digital Marketing, and Content Writing. My diverse roles at Tech Quest Consultancy, from ‘Head of IT’ to ‘Mentor,’ have allowed me to guide teams toward success and unlock their potential. Whether it’s coding or mentoring, I’m committed to making a positive impact in the tech world.
+            h3#mameru About Mameru Carr
             p.
                 I am a Software Developer at #[a(href="https://www.linkedin.com/company/adept-labz/") Adept Labz]
 </template>
 
 <style lang="sass" scoped>
+.links
+    li
+        margin: 0.5rem
+        padding-left: 0
+        &:before
+            content: none
+        a
+            display: block
+            &:after
+                content: none
+            img
+                width: 50px
+
 </style>
 

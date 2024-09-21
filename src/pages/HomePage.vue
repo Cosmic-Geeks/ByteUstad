@@ -8,12 +8,12 @@ const navItems = ['Articles', 'Snippets', 'About', 'Resources']
 <template lang="pug">
 .flex.justify-center.items-center.min-h-screen
     #welcome.flex.flex-col.space-y-4
-        h1.text-center.text-7xl
+        h1.text-center.text-6xl
             | Welcome To ByteUstad
-        p.text-center.text-4xl
-            | A blog by #[a(href="#" class="author") Akshara A] and #[a(href="#" class="author") Mameru Carr]
+        p.text-center.text-3xl
+            | A blog by #[a(href="/about#akshara" class="author") Akshara A] and #[a(href="/about#mameru" class="author") Mameru Carr]
         nav
-            ul.flex.justify-between.text-3xl
+            ul.flex.justify-between.text-2xl
                 li(v-for="navItem in navItems" :key="navItem")
                     | #[a(@click='router.push({ name: navItem })') {{ navItem }}]
 </template>

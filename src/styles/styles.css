@@ -87,6 +87,7 @@ main ul li {
     padding-left: 2ch;
     text-indent: -2ch;
 }
+
 main ul li:before {
     content: "•";
     padding-right: 1ch;
@@ -102,8 +103,22 @@ a[href^="https://"]::after {
     content: "°";
     color: orangered;
 }
+
 a[href^="https://"]:hover {
     background-color: beige;
+}
+
+a[href^="http://"]::after {
+    content: "°";
+    color: orangered;
+}
+
+a[href^="http://"]:hover {
+    background-color: beige;
+}
+
+a:not([href]) {
+    cursor: pointer;
 }
 
 @media only screen

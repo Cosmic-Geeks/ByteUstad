@@ -3,7 +3,6 @@ import router from "@/router";
 import NavComponent from "@/components/NavComponent.vue";
 </script>
 
-
 <template lang="pug">
 header.flex.justify-center
     .header.flex.justify-between.flex-wrap
