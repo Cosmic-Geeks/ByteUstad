@@ -7,7 +7,7 @@ import NavComponent from "@/components/NavComponent.vue";
 <template lang="pug">
 header.flex.justify-center
     .header.flex.justify-between
-        p.text-4xl.font-title
+        p.text-3xl.font-title
             | ByteUstad
         nav-component
 </template>

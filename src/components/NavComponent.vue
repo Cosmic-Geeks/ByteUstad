@@ -4,7 +4,7 @@ const navItems = ['Articles', 'Snippets', 'About']
 </script>
 
 <template lang="pug">
-nav.flex.items-center.text-2xl
+nav.flex.items-center.text-xl
     ul.flex.gap-8
         li(v-for="navItem in navItems" :key="navItem")
             | #[a(@click='router.push({ name: navItem })') {{ navItem }}]
