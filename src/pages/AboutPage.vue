@@ -71,6 +71,8 @@ import HeaderComponent from "@/components/HeaderComponent.vue";
                     | Come up with a set of requirements and discuss how to implement them.
                 li
                     | Explore real world scenarios and discuss how to approach them.
+            p
+                em - Mameru Carr
             h2 About the Authors
             h3 About Akshara A
             p.
