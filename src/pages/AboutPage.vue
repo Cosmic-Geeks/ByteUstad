@@ -84,8 +84,6 @@ import HeaderComponent from "@/components/HeaderComponent.vue";
                 li
                     a(href="https://github.com/mameru-carr/" target="_blank")
                         img(src="/logos/github-mark.svg")
-                li
-                    a(href="https://mameru.vercel.app/" target="_blank") Blog
             p.
                 I am a Software Developer
             p.
