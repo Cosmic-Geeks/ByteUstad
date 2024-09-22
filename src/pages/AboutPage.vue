@@ -2,7 +2,6 @@
 import HeaderComponent from "@/components/HeaderComponent.vue";
 </script>
 
-
 <template lang="pug">
 #about
     header-component
@@ -11,68 +10,56 @@ import HeaderComponent from "@/components/HeaderComponent.vue";
             h1 About
             p.
                 This is a project made for people who are learning to improve
-                their craft by people who want are learning to improve their craft.
+                their craft by people who are learning to improve their craft.
             h2 About this Project
             p.
-                At my job, I faced a lot of issues that were extremely challenging. Although, there are
-                a lot of #[a(href="https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world") good tutorials]
-                on #[a(href="https://www.youtube.com/@freecodecamp") building applications] which I benefited
-                from they did not expose me to a few key things:
+                This is a project aimed at #[em Advanced Beginners]. We define
+                Advanced Beginners as beginners who know a lot of the basics
+                but want to take their skills to the next level (intermediate).
+            p.
+                With that in mind, the blog focuses on the following aspects of
+                Software Development:
             ul
                 li
                     | #[strong Iterative / Agile Development]:
                     | Trying to develop features #[em on top of] existing code, while making sure that
                     | parts of the application do not break.
-                li
-                    | #[strong Complex Software Engineering]:
-                    | One of the big challenges was to make sure the API Calls, Database,
-                    | Blob Updates (File Storage), Pub Sub Events, Service Bus Messages
-                    | — I am working on a AI Based Chat Application — worked together while
-                    | gracefully handling failures in case things don't work correctly.
-                li
-                    | #[strong Communication]:
-                    | This is a big one. Especially when one of clients was in a different
-                    | side of the globe. So, communications would take #[em a day]. So, even
-                    | small miscommunication could lead to delays. Regardless of client's timezone,
-                    | it is worth while to learn to how to communicate effectively.
-                li
-                    | #[strong Changing Requirements]:
-                    | Requirements keep changing all the time. You have to keep this in mind
-                    | when developing software. However, not all changes can be anticipated.
-                    | In those cases, our code needs to be modular and flexible enough
-                    | to incorporate those changes.
+                li.
+                    #[strong Software Engineering]:
+                    One of the big challenges that beginners face is to integrate various technologies
+                    together. It is not enough to know how to write an #[Azure Function] for a
+                    #[code Service Bus Trigger], you need to know the potential pitfalls and
+                    their solutions, you need to know how to use #[code WebPubSub] to trigger UI events,
+                    you need to make sure that #[code Database] updates are working correctly. You need
+                    to know how to interweave all these components so that the feature works as expected. All while
+                    making sure that #[em even if] the code or system happens to fail — it does so gracefully.
+                li.
+                    #[strong Communication]:
+                    Communication is an integral part of Software Development. Be it communicating with your
+                    manager, seniors, clients or users. It is very important to know how to communicate
+                    effectively.
+                li.
+                    #[strong Changing Requirements]:
+                    Requirements keep changing all the time. You have to keep this in mind
+                    when developing software. However, not all changes can be anticipated.
+                    In those cases, our code needs to be modular and flexible enough
+                    to incorporate those changes.
+                li.
+                    #[strong Fundamentals]:
+                    Software Construction is complex and there is many ways to approach
+                    a given problem. Each software project also entails it's own set of
+                    challeges. But, there are some fundamental principles which — when
+                    applied correctly — can help avoid and mitigate a lot of problems.
+                li.
+                    #[strong Project Based Tutorials]:
+                    You might have heard of #[code Tutorial Hell] or you might have been
+                    through it already. The general answer to 'How to get out of Tutorial Hell'
+                    is usually 'Make Stuff'. But, what? How? Which way is better? etc. are questions
+                    that plague beginners.
             p.
-                In the programming community there is a lot of talk about
-                Tutorial Hell. The response to 'How to avoid Tutorial Hell?' is generally 'Go make stuff'.
-            p.
-                But, What? How? Should I do it this way or that way?
-            p.
-                These were the questions that plagued me when I first started out.
-            p.
-                Software Construction is complex and there is many ways to approach
-                a given problem. Each software project also entails it's own set of
-                challeges. But, there are some fundamental principles which — when
-                applied correctly — can help avoid and mitigate a lot of problems.
-            p.
-                There is a huge gap between Software Development in Practice and
-                Software Development Tutorials. Given the complex and unique nature of
-                each software project, this is expected. However, I believe we can make better
-                tutorials.
-            p.
-                This is blog is an attempt to make good tutorials. With all of this in mind,
-                 I wanted to focus on a few key things with this project:
-            ul
-                li
-                    | Create a set of tutorials that are part of a whole project or whole projects.
-                    | So, that the concepts build towards a project.
-                li
-                    | Let learners, decide on which modules to incorporate and how.
-                li
-                    | Come up with a set of requirements and discuss how to implement them.
-                li
-                    | Explore real world scenarios and discuss how to approach them.
-            p
-                em - Mameru Carr
+                So in short, what you will find in this blog are Practical Project Based Tutorials, and the
+                Fundamental Concepts that help to make better software.
+
             h2 About the Authors
             h3#akshara About Akshara A
             ul.links.flex.flex-wrap.flex-row
@@ -90,8 +77,20 @@ import HeaderComponent from "@/components/HeaderComponent.vue";
             p.
                 I am a Technology Management Specialist with a passion for inspiring the next generation. I’ve mentored over 2K individuals in areas like Programming, Web Development, Database Management, UI/UX design, Graphic design, Digital Marketing, and Content Writing. My diverse roles at Tech Quest Consultancy, from ‘Head of IT’ to ‘Mentor,’ have allowed me to guide teams toward success and unlock their potential. Whether it’s coding or mentoring, I’m committed to making a positive impact in the tech world.
             h3#mameru About Mameru Carr
+            ul.links.flex.flex-wrap.flex-row
+                li
+                    a(href="https://www.linkedin.com/in/mameru-carr/" target="_blank")
+                        img(src="/logos/icons8-linkedin.svg")
+                li
+                    a(href="https://github.com/mameru-carr/" target="_blank")
+                        img(src="/logos/github-mark.svg")
+                li
+                    a(href="https://mameru.vercel.app/" target="_blank") Blog
             p.
-                I am a Software Developer at #[a(href="https://www.linkedin.com/company/adept-labz/") Adept Labz]
+                I am a Software Developer
+            p.
+                I am a curious and passionate Junior Software Engineer at #[a(href="https://www.linkedin.com/company/adept-labz/") Adept Labz]. My personal focus is on creating user interfaces and systemic solutions that enables people to expand what they can think, do and express. I am proficient in multiple languages while focusing on full-stack development.
+                When I am not programming, I am usually writing (at #[a(href="https://mameru.vercel.app/") The Lonely Mountain]), and when I am not writing I am drawing.
 </template>
 
 <style lang="sass" scoped>
