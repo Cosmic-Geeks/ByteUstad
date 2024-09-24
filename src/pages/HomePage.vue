@@ -13,8 +13,8 @@ const navItems = ['Articles', 'Snippets', 'About', 'Resources']
         p.text-center.text-3xl
             | A blog by #[a(href="/about#akshara" class="author") Akshara A] and #[a(href="/about#mameru" class="author") Mameru Carr]
         nav
-            ul.flex.justify-between.text-2xl
-                li(v-for="navItem in navItems" :key="navItem")
+            ul.flex.justify-between.flex-wrap.text-2xl
+                li(v-for="navItem in navItems" :key="navItem").mx-2
                     | #[a(@click='router.push({ name: navItem })') {{ navItem }}]
 </template>
 

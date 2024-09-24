@@ -34,7 +34,7 @@ article h3,
 article h4,
 article h5,
 article h6 {
-    font-variation-settings: "MONO" 0, "CASL" 1, "wght" 600, "slnt" -15, "CRSV" 1;
+    font-variation-settings: "MONO" 0, "CASL" 1, "wght" 700, "slnt" -15, "CRSV" 1;
     grid-column: 1;
     text-align: right;
     max-width: 480px;
