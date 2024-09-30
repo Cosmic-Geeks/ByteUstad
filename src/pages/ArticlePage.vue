@@ -1,13 +1,7 @@
 <script setup>
 import {RouterView, useRouter} from 'vue-router'
-import useArticlesLoader from "@/stores/articles";
 import {onMounted} from "vue";
-
-const articlesLoader = useArticlesLoader();
-onMounted(() => {
-    articlesLoader.fetchArticleRoutes();
-});
-
+import '@/styles/styles.css';
 </script>
 
 <template lang="pug">

@@ -1,18 +1,16 @@
 <script setup>
-import HeaderComponent from "@/components/HeaderComponent.vue";
-import useArticlesLoader from "@/stores/articles"
+import useArticlesStore from "@/stores/articles"
 import { useRouter } from "vue-router";
-
-const articlesLoader = useArticlesLoader();
-articlesLoader.fetchArticleRoutes();
-const articles = articlesLoader.articles;
+import {storeToRefs} from "pinia";
 
 const router = useRouter();
+const articlesStore = useArticlesStore();
+const articles = articlesStore.getArticles;
 </script>
 
 <template lang="pug">
 main
-    template(v-for="article in articles")
+    template(v-for="[key, article] in articles")
         h2
             a(@click="router.push({name: 'HelloWorld'})") {{ article.title }}
 </template>

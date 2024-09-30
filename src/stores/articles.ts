@@ -1,32 +1,32 @@
 import {defineStore} from "pinia";
-import router from "@/router";
+import type {Articles} from "@/types/articles";
+import ArticleStatusEnum from "@/types/ArticleStatusEnum";
 
-const useArticlesLoader= defineStore('articles', {
-    actions: {
+const useArticlesStore = defineStore('articles', {
+    getters: {
         /**
-         * Automatically fetch all articles and populate routes
+         * From articles fetch articles marked as 'Completed'
+         * @param state
          */
-        fetchArticleRoutes() {
-            const articleComponents = import.meta.glob(`/src/pages/articles/*.mdx`);
-
-            // Create Child Route For Each Article
-            for(const key of Object.keys(articleComponents)) {
-                const name = key.split("/").pop()?.replace(".mdx", "");
-                router.addRoute('Article', { path: `/article/${name}`, component: articleComponents[key], name });
-            }
-        }
+        getArticles: (state: { articles: Articles }) => {
+            const articles = state.articles;
+            return Object.entries(articles).filter(
+                    ([key]) =>
+                        articles[key].status === ArticleStatusEnum.Completed
+                )
+        },
     },
     state: () => ({
         articles: {
             'HelloWorld': {
                 title: 'Hello, World!',
-                status: 'In Progress',
+                status: 'Completed',
                 description: 'Testing only',
                 authors: ['Akshara A', 'Mameru Carr'],
                 date: new Date(2024, 9, 30)
             }
-        }
+        } as Articles
     }),
 });
 
-export default useArticlesLoader;
+export default useArticlesStore;
