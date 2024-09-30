@@ -1,5 +1,4 @@
 <script setup>
-import router from "@/router";
 import NavComponent from "@/components/NavComponent.vue";
 </script>
 
@@ -18,5 +17,6 @@ header
     .header
         width: 60%
     p
+        margin-left: 0.5rem
         font-variation-settings: "MONO" 0, "CASL" 0.5, "wght" 500, "slnt" 0, "CRSV" 0.5
 </style>

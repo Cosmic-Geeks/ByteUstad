@@ -26,15 +26,8 @@ const router = createRouter({
             "path": "/article",
             "component": ArticlePage,
             "name": "Article",
-            "children": [
-                {
-                    "path": "HelloWorld",
-                    "component": () => import('@/pages/articles/HelloWorld.mdx'),
-                    "name": "HelloWorld"
-                },
-            ]
         },
     ]
 })
 
-export default router
+export default router;

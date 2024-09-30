@@ -1,13 +1,18 @@
 <script setup>
-import { RouterView } from 'vue-router'
-import HeaderComponent from "@/components/HeaderComponent.vue";
+import {RouterView, useRouter} from 'vue-router'
+import useArticlesLoader from "@/stores/articles";
+import {onMounted} from "vue";
+
+const articlesLoader = useArticlesLoader();
+onMounted(() => {
+    articlesLoader.fetchArticleRoutes();
+});
+
 </script>
 
 <template lang="pug">
-.wrapper
-    header-component
-    main
-        router-view
+main
+    router-view
 </template>
 
 <style scoped lang="sass">

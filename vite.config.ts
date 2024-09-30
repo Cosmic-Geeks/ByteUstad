@@ -13,7 +13,7 @@ export default defineConfig({
     vueJsx(),
     vueDevTools(),
     mdx({
-        jsxImportSource: 'vue'
+        jsxImportSource: 'vue',
     })
   ],
   resolve: {
