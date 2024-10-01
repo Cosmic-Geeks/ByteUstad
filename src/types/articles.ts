@@ -5,6 +5,8 @@ export interface Article {
     description: string;
     status: ArticleStatusType
     authors: string[],
+    tags: string[],
+    category: string,
     date: Date
 }
 

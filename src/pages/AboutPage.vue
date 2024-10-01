@@ -83,8 +83,6 @@ main
                 a(href="https://github.com/mameru-carr/" target="_blank")
                     img(src="/logos/github-mark.svg")
         p.
-            I am a Software Developer
-        p.
             I am a curious and passionate Junior Software Engineer at #[a(href="https://www.linkedin.com/company/adept-labz/") Adept Labz]. My personal focus is on creating user interfaces and systemic solutions that enables people to expand what they can think, do and express. I am proficient in multiple languages while focusing on full-stack development.
             When I am not programming, I am usually writing (at #[a(href="https://mameru.vercel.app/") The Lonely Mountain]), and when I am not writing I am drawing.
 </template>
