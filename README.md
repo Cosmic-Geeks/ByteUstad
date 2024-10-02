@@ -2,6 +2,8 @@
 
 A blog by [Akshara A](https://github.com/akshara-a) and [Mameru Carr](https://github.com/mameru-carr)
 
+[Visit the Blog!](https://byteustad.onrender.com/)
+
 ## Adding Articles
 There are 2 ways you can add articles:
 1. __Manually__: Do the following directly in GitHub by clicking the edit icon in the respective files.
@@ -18,7 +20,7 @@ once changes are commited and pushed to `main` they will be deployed automatical
     1. The key is the name of the file without `.mdx`. For example, if the file was named `HelloWorld.mdx` you will use `HelloWorld` as key in `articles.ts`
     2. If the article is marked as `completed` it will automatically show up in `/articles` page.
 
-## Example
+### Example
 
 1. Create the `md` or `mdx` file (say, `HelloWorld.mdx`):
 ```md
@@ -32,14 +34,22 @@ This is the article!
 ```ts
     state: () => ({
         articles: {
-            'HelloWorld': {
-                title: 'Hello, World!',
-                status: 'In Progress',
-                description: 'Testing only',
-                authors: ['Akshara A', 'Mameru Carr'],
-                date: new Date(2024, 9, 30)
-            }
+           'HelloWorld': {
+              title: 'Hello, World!',
+              status: 'Completed',
+              description: 'Testing only',
+              authors: [Authors.Akshara, Authors.Mameru],
+              tags: ['Reference', 'Software Architecture'],
+              category: 'Architecture',
+              date: new Date(2024, 9, 30)
+           },
         }
     })
 ```
 4. And, voila!
+
+### Notes
+1. All fields are mandatory!
+2. Make sure that tags are spelled correctly (only then will they be grouped together -- casing does matter)
+3. The article will automatically show up in the articles page once it is marked as completed.
+4. Be sure to check out the MDX Documentation for available features (you can use any vue component inside mdx file!)
