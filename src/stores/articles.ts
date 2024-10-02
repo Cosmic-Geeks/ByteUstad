@@ -1,6 +1,8 @@
 import {defineStore} from "pinia";
-import type {Articles} from "@/types/articles";
+import type {Article, Articles} from "@/types/articles";
 import ArticleStatusEnum from "@/types/ArticleStatusEnum";
+import Authors from "@/types/Authors";
+import articleStatusEnum from "@/types/ArticleStatusEnum";
 
 const useArticlesStore = defineStore('articles', {
     getters: {
@@ -8,12 +10,29 @@ const useArticlesStore = defineStore('articles', {
          * From articles fetch articles marked as 'Completed'
          * @param state
          */
-        getArticles: (state: { articles: Articles }) => {
+        getArticlesByCategory: (state: { articles: Articles }) => {
             const articles = state.articles;
-            return Object.entries(articles).filter(
-                    ([key]) =>
-                        articles[key].status === ArticleStatusEnum.Completed
-                )
+            const organizedByCategory: { [key: string]: { [key: string]: Article } } = {};
+
+            Object.keys(articles).forEach(key => {
+                const article = articles[key];
+                const category = article.category;
+
+                if (article.status === articleStatusEnum.Completed) {
+                    // if category doesn't exist add it
+                    if (!organizedByCategory[key]) {
+                        organizedByCategory[category] = {};
+                    }
+
+                    organizedByCategory[category][key] = article;
+                }
+            });
+
+            // return Object.entries(articles).filter(
+            //         ([key]) =>
+            //             articles[key].status === ArticleStatusEnum.Completed
+            //     )
+            return organizedByCategory;
         },
         getArticlesByTag(state: { articles: Articles }) {
             const articles = state.articles;
@@ -22,7 +41,8 @@ const useArticlesStore = defineStore('articles', {
         getTags(state: { articles: Articles }) {
             const articles = state.articles;
             const tags: string[] = [];
-            Object.entries(articles).forEach(([key]) => tags.push(...articles[key].tags));
+            Object.keys(articles).forEach(([key]) => tags.push(...articles[key].tags));
+            console.log(tags);
             return new Set(tags);
         }
     },
@@ -32,7 +52,7 @@ const useArticlesStore = defineStore('articles', {
                 title: 'Hello, World!',
                 status: 'Completed',
                 description: 'Testing only',
-                authors: ['Akshara A', 'Mameru Carr'],
+                authors: [Authors.Akshara, Authors.Mameru],
                 tags: ['Reference', 'Software Architecture'],
                 category: 'Architecture',
                 date: new Date(2024, 9, 30)
