@@ -11,34 +11,41 @@ const useArticlesStore = defineStore('articles', {
          * @param state
          */
         getArticlesByCategory: (state: { articles: Articles }) => {
-            const articles = state.articles;
-            const organizedByCategory: { [key: string]: { [key: string]: Article } } = {};
+            return (tag: string) => {
+                const articles = state.articles;
+                const organizedByCategory: { [key: string]: { [key: string]: Article } } = {};
 
-            Object.keys(articles).forEach(key => {
-                const article = articles[key];
-                const category = article.category;
+                Object.keys(articles).forEach(key => {
+                    const article = articles[key];
+                    const category = article.category;
 
-                if (article.status === articleStatusEnum.Completed) {
-                    // if category doesn't exist add it
-                    if (!organizedByCategory[category]) {
-                        organizedByCategory[category] = {};
+                    if (article.status === articleStatusEnum.Completed) {
+                        if (tag ? article.tags.includes(tag) : true) {
+                                // if category doesn't exist add it
+                                if (!organizedByCategory[category]) {
+                                    organizedByCategory[category] = {};
+                                }
+
+                                organizedByCategory[category][key] = article;
+                        }
                     }
+                });
 
-                    organizedByCategory[category][key] = article;
+                return organizedByCategory;
+            }
+        },
+        getTags(state: { articles: Articles }) {
+            const articles: Articles = {};
+
+            Object.keys(state.articles).forEach(key => {
+                if(state.articles[key].status === articleStatusEnum.Completed) {
+                    articles[key] = state.articles[key];
                 }
             });
 
-            return organizedByCategory;
-        },
-        getArticlesByTag(state: { articles: Articles }) {
-            const articles = state.articles;
-            return (tag: string) => Object.entries(articles).filter(([key]) => articles[key].tags.includes(tag));
-        },
-        getTags(state: { articles: Articles }) {
-            const articles = state.articles;
             const tags: string[] = [];
-            Object.keys(articles).forEach(([key]) => tags.push(...articles[key].tags));
-            console.log(tags);
+            Object.keys(articles).forEach((key) => tags.push(...articles[key].tags));
+
             return new Set(tags);
         }
     },
