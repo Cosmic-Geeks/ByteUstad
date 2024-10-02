@@ -13,27 +13,17 @@ const articlesByCategory = articlesStore.getArticlesByCategory;
 
 <template lang="pug">
 main
-    .articles
+    article
+        h1 Browse Articles
         template(v-for="(articles, category) in articlesByCategory" :key="category")
             h2 {{ category }}
-            template(v-for="article of articles" :key="article")
-                p {{ article.title }}
+            template(v-for="(article, name) of articles" :key="name")
+                article-component(:article="article" :name="name")
 </template>
 
 <style lang="sass" scoped>
 h2
     font-variation-settings: "MONO" 0, "CASL" 1, "wght" 700, "slnt" -15, "CRSV" 1
     font-size: 1.5rem
-.card
-    max-width: 75ch
     padding: 1rem
-    border-bottom: 2px solid firebrick
-    .date
-        font-size: 0.90rem
-        font-variation-settings: "MONO" 0.5, "CASL" 1, "wght" 400, "slnt" 0, "CRSV" 1
-    .description
-        margin-top: 0.5rem
-        font-variation-settings: "MONO" 0.5, "CASL" 0.5, "wght" 400, "slnt" 0, "CRSV" 1
-.card + .card
-    margin-top: 1rem
 </style>

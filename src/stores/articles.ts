@@ -20,7 +20,7 @@ const useArticlesStore = defineStore('articles', {
 
                 if (article.status === articleStatusEnum.Completed) {
                     // if category doesn't exist add it
-                    if (!organizedByCategory[key]) {
+                    if (!organizedByCategory[category]) {
                         organizedByCategory[category] = {};
                     }
 
@@ -28,10 +28,6 @@ const useArticlesStore = defineStore('articles', {
                 }
             });
 
-            // return Object.entries(articles).filter(
-            //         ([key]) =>
-            //             articles[key].status === ArticleStatusEnum.Completed
-            //     )
             return organizedByCategory;
         },
         getArticlesByTag(state: { articles: Articles }) {
@@ -50,7 +46,7 @@ const useArticlesStore = defineStore('articles', {
         articles: {
             'HelloWorld': {
                 title: 'Hello, World!',
-                status: 'Completed',
+                status: articleStatusEnum.InProgress,
                 description: 'Testing only',
                 authors: [Authors.Akshara, Authors.Mameru],
                 tags: ['Reference', 'Software Architecture'],
@@ -59,7 +55,7 @@ const useArticlesStore = defineStore('articles', {
             },
             'HelloSolarSystem': {
                 title: 'Hello, Solar System!',
-                status: 'Completed',
+                status: articleStatusEnum.Completed,
                 description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
                 authors: ['Akshara A'],
                 category: 'Architecture',
@@ -67,7 +63,7 @@ const useArticlesStore = defineStore('articles', {
                 date: new Date(2024, 9, 30)
             },
             'HelloGalaxy': {
-                title: 'Hello, Solar System!',
+                title: 'Hello, Galaxy!',
                 status: 'Completed',
                 description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
                 authors: ['Akshara A'],

@@ -1,11 +1,12 @@
 <script setup>
+import router from "@/router";
 import NavComponent from "@/components/NavComponent.vue";
 </script>
 
 <template lang="pug">
 header.flex.justify-center
     .header.flex.justify-between.flex-wrap
-        p.text-3xl.font-title
+        p.text-3xl.font-title(@click="router.push({name: 'Home'})")
             | ByteUstad
         nav-component
 </template>
@@ -19,4 +20,5 @@ header
     p
         margin-left: 0.5rem
         font-variation-settings: "MONO" 0, "CASL" 0.5, "wght" 500, "slnt" 0, "CRSV" 0.5
+        cursor: pointer
 </style>
