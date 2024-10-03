@@ -1,20 +1,21 @@
 <script setup>
 import router from "@/router";
 import NavComponent from "@/components/NavComponent.vue";
+import MainContainer from "@/components/Layout/MainContainer.vue";
 </script>
 
 <template lang="pug">
-header.flex.justify-center
-    .header.flex.justify-between.flex-wrap
-        p.text-3xl.font-title(@click="router.push({name: 'Home'})")
-            | ByteUstad
-        nav-component
+header
+    main-container
+        .header.flex.justify-between.flex-wrap
+                p.text-3xl.font-title(@click="router.push({name: 'Home'})")
+                    | ByteUstad
+                nav-component
 </template>
 
 <style lang="sass" scoped>
 header
     border-bottom: 2px solid firebrick
-    padding: 1rem
     .header
         width: 60%
     p

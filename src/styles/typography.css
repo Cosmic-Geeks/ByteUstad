@@ -1,12 +1,5 @@
 /* Recursive */
 /* Refer: https://www.recursive.design/ */
-:root {
-    --mono: "MONO" 0;
-    --casl: "CASL" 0;
-    --wght: "wght" 400;
-    --slnt: "slnt" 0;
-    --CRSV: "CRSV" 0.5;
-}
 
 /* The bare minimum English subset, plus copyright & arrows (← ↑ → ↓) & quotes (“ ” ‘ ’) & bullet (•) */
 @font-face {
@@ -21,3 +14,76 @@
 body {
     font-family: 'Recursive', sans-serif;
 }
+
+article h1,
+article h2,
+article h3,
+article h4,
+article h5,
+article h6 {
+    font-variation-settings: "MONO" 0, "CASL" 1, "wght" 800, "slnt" -15, "CRSV" 0.5;
+}
+
+article h1 {
+    font-size: 1.75rem;
+}
+
+article h2 {
+    font-size: 1.5rem
+}
+
+article h3 {
+    font-size: 1.25rem
+}
+
+article h3,
+article h4,
+article h5,
+article h6 {
+    padding-top: 5px; /* required to fix wierd alignment issue between casual and monospace font in the same line */
+    font-weight: bold;
+    font-variation-settings: "MONO" 1, "CASL" 0, "wght" 800, "slnt" 0, "CRSV" 1
+}
+
+main ul li {
+    padding-left: 2ch;
+    text-indent: -2ch;
+}
+
+main ul li:before {
+    content: "•";
+    padding-right: 1ch;
+}
+
+main a[href="#"]::after,
+main a[href=""]::after {
+    content: "°";
+    color: lightslategray;
+}
+
+main a[href^="https://"]::after {
+    content: "°";
+    color: orangered;
+}
+
+main a[href^="http://"]::after {
+    content: "°";
+    color: orangered;
+}
+
+main a[href^="http://"]:hover {
+    background-color: beige;
+}
+
+main a:not([href]) {
+    cursor: pointer;
+}
+
+main a, nav a {
+    font-variation-settings: "MONO" 0, "CASL" 1, "wght" 400, "slnt" 0, "CRSV" 1;
+    transition: color 0.3s ease-out
+}
+main a:hover, nav a:hover {
+    color: deepskyblue;
+}
+

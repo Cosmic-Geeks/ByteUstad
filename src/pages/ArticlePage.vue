@@ -1,11 +1,10 @@
 <script setup>
-import {RouterView, useRouter} from 'vue-router'
-import {onMounted} from "vue";
-import '@/styles/styles.css';
+import {RouterView} from 'vue-router'
+import PageLayout from "@/components/Layout/PageLayout.vue";
 </script>
 
 <template lang="pug">
-main
+page-layout
     router-view
 </template>
 

@@ -30,9 +30,8 @@ const query = computed(() => route.query);
             a(@click="router.push({ name: 'Articles', query: {author: author}})") {{ author }}
             template(v-if="index < authors.length - 2") ,
             template(v-else-if="index === authors.length - 2")  {{ authors.length > 2 ? ',' : '' }} and&nbsp;
-    p.date &#x1F4C5: {{ formatDate(article.date) }}
+    p.date {{ formatDate(article.date) }}
     p.tags
-        | &#x1F3F7:&nbsp;
         template(v-for="(tag, index) in tags" :key="tag")
             a(@click="query.tag === tag ? router.push({ name: 'Articles' }) : router.push({ name: 'Articles', query: {tag: tag}})"
                 :class="{ active: query.tag === tag }") {{ tag }}
@@ -44,45 +43,38 @@ const query = computed(() => route.query);
 
 <style scoped lang="sass">
 h3
-    text-align: left
     cursor: pointer
-    font-variation-settings: "MONO" 1, "CASL" 0, "wght" 800, "slnt" 0, "CRSV" 1
-    transition: box-shadow 0.3s ease-out
+    transition: all 0.3s ease-out
     &:hover
-         text-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)
+        transform: scale3d(0, -2px, 0)
+        text-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)
 .card
-    max-width: 75ch
-    padding: 1rem
     border-bottom: 2px solid firebrick
-    grid-column: -1
+    padding-left: 0.5rem
+    padding-bottom: 1rem
     .date
-        font-size: 0.8rem
-        font-variation-settings: "MONO" 0.5, "CASL" 0.5, "wght" 500, "slnt" 0, "CRSV" 1
+        color: lightslategray
+        font-variation-settings: "MONO" 0.5, "CASL" 0.5, "wght" 400, "slnt" 0, "CRSV" 1
+        &:before
+            content: "\1F4C5\00a0"
     .tags
-        color: lightslategrey
-        font-size: 0.8rem
+        color: navy
         font-variation-settings: "MONO" 0.5, "CASL" 0.5, "wght" 500, "slnt" 0, "CRSV" 1
+        &:before
+            content: "\1F3F7\00a0"
         .active
-            color: black
+            color: deepskyblue
             font-variation-settings: "MONO" 0.5, "CASL" 0.5, "wght" 500, "slnt" 0, "CRSV" 1
         a
             transition: color 0.3s ease-out
             &:hover
-                color: black
-    .authors
-        font-size: 0.9rem
-        a
-            transition: color 0.3s ease-out
-            &:hover
                 color: deepskyblue
+    .authors
+        &:before
+            content: "By\00a0"
     .description
         margin-top: 0.5rem
         font-variation-settings: "MONO" 0.5, "CASL" 0.5, "wght" 400, "slnt" 0, "CRSV" 1
         a
-            color: firebrick
-.card + .card
-    margin-top: 0.5rem
-.authors
-    a
-        font-variation-settings: "MONO" 0, "CASL" 1, "wght" 400, "slnt" 0, "CRSV" 1
+            color: orangered
 </style>

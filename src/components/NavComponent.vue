@@ -16,6 +16,7 @@ nav.flex.items-center.text-xl
 li
     font-variation-settings: "MONO" 1, "CASL" 0, "wght" 400, "slnt" 0, "CRSV" 0.5
     a
+        cursor: pointer
         display: block
 .active
     text-decoration: underline

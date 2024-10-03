@@ -5,6 +5,7 @@ import {storeToRefs} from "pinia";
 import {computed, ref} from "vue";
 import { formatDate } from "../utils";
 import ArticleComponent from "@/components/ArticleComponent.vue";
+import PageLayout from "@/components/Layout/PageLayout.vue";
 
 const router = useRouter();
 const route = useRoute();
@@ -14,35 +15,31 @@ const articlesByCategory = computed(() => getArticlesByCategory.value({ tag: que
 </script>
 
 <template lang="pug">
-main
-    article
-        h1 Browse Articles
-        h2 Tags
-        p.tags
-            | #[a(@click="router.push({name: 'Articles'})") All]
-            template(v-for="tag in tags" :key="tag")
-                a(@click="query.tag === tag ? router.push({name: 'Articles'}) : router.push({name: 'Articles', query: { tag: tag }})"
-                    :class="{ active: query.tag === tag }") {{ tag }}
-        template(v-for="(articles, category) in articlesByCategory" :key="category")
-            h2 {{ category }}
-            template(v-for="(article, name) of articles" :key="name")
+page-layout
+    h1 Browse Articles
+    h2 Tags
+    p.tags
+        | #[a(@click="router.push({name: 'Articles'})") All]
+        template(v-for="tag in tags" :key="tag")
+            a(@click="query.tag === tag ? router.push({name: 'Articles'}) : router.push({name: 'Articles', query: { tag: tag }})"
+                :class="{ active: query.tag === tag }") {{ tag }}
+    template(v-for="(articles, category) in articlesByCategory" :key="category")
+        h2 {{ category }}
+        template(v-for="(article, name) of articles" :key="name")
+            p
                 article-component(:article="article" :name="name")
 </template>
 
 <style lang="sass" scoped>
-h2
-    font-variation-settings: "MONO" 0, "CASL" 1, "wght" 700, "slnt" -15, "CRSV" 1
-    font-size: 1.5rem
-    padding: 1rem
 .tags
-    grid-column: -1
     display: flex
+    cursor: pointer
     flex-wrap: wrap
     font-variation-settings: "MONO" 0, "CASL" 1, "wght" 600, "slnt" 0, "CRSV" 1
     font-size: 0.9rem
     align-content: center
     a
-        margin: 0.5rem
+        margin: 0 0.5rem 0.5rem
         padding: 0.5rem
         color: firebrick
         border-radius: 2rem
