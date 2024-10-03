@@ -11,8 +11,18 @@ const currentRoute = computed(() => router.currentRoute.value.name)
 <template lang="pug">
 .app
     header-component(v-if="currentRoute !== 'Home'")
-    router-view
+    router-view(v-slot="{ Component }")
+        transition(name="fade" mode="out-in")
+            component(:is="Component")
 </template>
 
-<style scoped>
+<style scoped lang="sass">
+.fade-enter-active, .fade-leave-active
+    transition: opacity 0.5s ease
+
+.fade-leave-from, .fade-enter-to
+    opacity: 1
+
+.fade-enter-from, .fade-leave-to
+    opacity: 0
 </style>
