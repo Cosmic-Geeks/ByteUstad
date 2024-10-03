@@ -31,20 +31,23 @@ This is the article!
 
 2. Upload the file to `src/pages/articles` using GitHub or Git (make sure it has `mdx` extension).
 3. Add Metadata to `src/stores/articles.ts`. Since filename was `HelloWorld.mdx` the key is `HelloWorld`:
+
 ```ts
-    state: () => ({
-        articles: {
-           'HelloWorld': {
-              title: 'Hello, World!',
-              status: 'Completed',
-              description: 'Testing only',
-              authors: [Authors.Akshara, Authors.Mameru],
-              tags: ['Reference', 'Software Architecture'],
-              category: 'Architecture',
-              date: new Date(2024, 9, 30)
-           },
-        }
-    })
+import articleStatusEnum from "./ArticleStatusEnum";
+
+state: () => ({
+   articles: {
+      'HelloWorld': {
+         title: 'Hello, World!',
+         status: articleStatusEnum.Completed,
+         description: 'Testing only',
+         authors: [Authors.Akshara, Authors.Mameru],
+         tags: ['Reference', 'Software Architecture'],
+         category: 'Architecture',
+         date: new Date(2024, 9, 30)
+      },
+   }
+})
 ```
 4. And, voila!
 

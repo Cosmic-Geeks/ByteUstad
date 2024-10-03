@@ -9,9 +9,8 @@ import ArticleComponent from "@/components/ArticleComponent.vue";
 const router = useRouter();
 const route = useRoute();
 const query = computed(() => route.query);
-const articlesStore = useArticlesStore();
-const articlesByCategory = computed(() => articlesStore.getArticlesByCategory(query.value.tag));
-const tags = articlesStore.getTags;
+const { getArticlesByCategory, tags } = storeToRefs(useArticlesStore());
+const articlesByCategory = computed(() => getArticlesByCategory.value({ tag: query.value.tag, author: query.value.author }));
 </script>
 
 <template lang="pug">
@@ -19,9 +18,11 @@ main
     article
         h1 Browse Articles
         h2 Tags
-        .tags
+        p.tags
+            | #[a(@click="router.push({name: 'Articles'})") All]
             template(v-for="tag in tags" :key="tag")
-                a(@click="router.push({name: 'Articles', query: { tag: tag }})") {{ tag }}
+                a(@click="query.tag === tag ? router.push({name: 'Articles'}) : router.push({name: 'Articles', query: { tag: tag }})"
+                    :class="{ active: query.tag === tag }") {{ tag }}
         template(v-for="(articles, category) in articlesByCategory" :key="category")
             h2 {{ category }}
             template(v-for="(article, name) of articles" :key="name")
@@ -52,4 +53,9 @@ h2
             color: white
             transform: translate3d(0px, -5px, 0px)
             box-shadow: 0 10px 20px rgba(0,0,0,0.15), 0 6px 6px rgba(0,0,0,0.20)
+    .active
+        background-color: gold
+        border: 2px solid gold
+        &:hover
+            border: 2px solid firebrick
 </style>

@@ -3,6 +3,8 @@ import type {Article, Articles} from "@/types/articles";
 import ArticleStatusEnum from "@/types/ArticleStatusEnum";
 import Authors from "@/types/Authors";
 import articleStatusEnum from "@/types/ArticleStatusEnum";
+import authors from "@/types/Authors";
+import {not} from "@/utils";
 
 const useArticlesStore = defineStore('articles', {
     getters: {
@@ -11,16 +13,19 @@ const useArticlesStore = defineStore('articles', {
          * @param state
          */
         getArticlesByCategory: (state: { articles: Articles }) => {
-            return (tag: string) => {
+            return (params: { tag: string, author: string }) => {
                 const articles = state.articles;
+                const { tag, author } = params;
                 const organizedByCategory: { [key: string]: { [key: string]: Article } } = {};
 
-                Object.keys(articles).forEach(key => {
-                    const article = articles[key];
-                    const category = article.category;
+                Object.entries(articles).forEach(([key, article]) => {
+                    const { category, status, authors, tags } = article;
+
+                    const authorMatch = not(author)  || authors.includes(author);
+                    const tagMatch = not(tag)  || tags.includes(tag);
 
                     if (article.status === articleStatusEnum.Completed) {
-                        if (tag ? article.tags.includes(tag) : true) {
+                        if (tagMatch && authorMatch) {
                                 // if category doesn't exist add it
                                 if (!organizedByCategory[category]) {
                                     organizedByCategory[category] = {};
@@ -34,7 +39,7 @@ const useArticlesStore = defineStore('articles', {
                 return organizedByCategory;
             }
         },
-        getTags(state: { articles: Articles }) {
+        tags(state: { articles: Articles }) {
             const articles: Articles = {};
 
             Object.keys(state.articles).forEach(key => {
@@ -53,7 +58,7 @@ const useArticlesStore = defineStore('articles', {
         articles: {
             'HelloWorld': {
                 title: 'Hello, World!',
-                status: articleStatusEnum.InProgress,
+                status: articleStatusEnum.Completed,
                 description: 'Testing only',
                 authors: [Authors.Akshara, Authors.Mameru],
                 tags: ['Reference', 'Software Architecture'],
@@ -64,7 +69,7 @@ const useArticlesStore = defineStore('articles', {
                 title: 'Hello, Solar System!',
                 status: articleStatusEnum.Completed,
                 description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-                authors: ['Akshara A'],
+                authors: [authors.Mameru],
                 category: 'Architecture',
                 tags: ['Reference'],
                 date: new Date(2024, 9, 30)
@@ -73,7 +78,7 @@ const useArticlesStore = defineStore('articles', {
                 title: 'Hello, Galaxy!',
                 status: 'Completed',
                 description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-                authors: ['Akshara A'],
+                authors: [authors.Akshara],
                 category: 'Fundamentals',
                 tags: ['Software Architecture'],
                 date: new Date(2024, 9, 30)
