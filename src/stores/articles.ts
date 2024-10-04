@@ -65,24 +65,6 @@ const useArticlesStore = defineStore('articles', {
                 category: 'Architecture',
                 date: new Date(2024, 9, 30)
             },
-            'HelloSolarSystem': {
-                title: 'Hello, Solar System!',
-                status: articleStatusEnum.Completed,
-                description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-                authors: [authors.Mameru],
-                category: 'Architecture',
-                tags: ['Reference'],
-                date: new Date(2024, 9, 30)
-            },
-            'HelloGalaxy': {
-                title: 'Hello, Galaxy!',
-                status: 'Completed',
-                description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-                authors: [authors.Akshara],
-                category: 'Fundamentals',
-                tags: ['Software Architecture'],
-                date: new Date(2024, 9, 30)
-            }
         } as Articles
     }),
 });

@@ -4,6 +4,8 @@ import {formatDate} from "@/utils";
 import {computed, defineProps, ref} from "vue";
 import type {Article} from "@/types/articles";
 import {useRoute} from "vue-router";
+import { RouterLink } from "vue-router";
+
 const props = defineProps({
     article: {
         required: true,
@@ -27,18 +29,21 @@ const query = computed(() => route.query);
     h3(@click="router.push({name: name})") {{ article.title }}
     p.authors
         template(v-for="(author, index) in authors" :key="author")
-            a(@click="router.push({ name: 'Articles', query: {author: author}})") {{ author }}
+            router-link(
+                :to="query.author === author ? { name: 'Articles' } : { name: 'Articles', query: { author: author }}")
+                | {{ author }}
             template(v-if="index < authors.length - 2") ,
             template(v-else-if="index === authors.length - 2")  {{ authors.length > 2 ? ',' : '' }} and&nbsp;
     p.date {{ formatDate(article.date) }}
     p.tags
         template(v-for="(tag, index) in tags" :key="tag")
-            a(@click="query.tag === tag ? router.push({ name: 'Articles' }) : router.push({ name: 'Articles', query: {tag: tag}})"
+            router-link(:to="query.tag === tag ? { name: 'Articles' } : { name: 'Articles', query: {tag: tag}}"
                 :class="{ active: query.tag === tag }") {{ tag }}
             template(v-if="index < authors.length - 1") ,&nbsp;
     p.description
         | {{ article.description }}
-        | #[a(@click="router.push({ name: name })") Read Article]
+        | &nbsp;
+        router-link(:to="{ name }") Read Article
 </template>
 
 <style scoped lang="sass">
@@ -77,4 +82,7 @@ h3
         font-variation-settings: "MONO" 0.5, "CASL" 0.5, "wght" 400, "slnt" 0, "CRSV" 1
         a
             color: orangered
+            transition: color 0.3s ease-out
+            &:hover
+                color: firebrick
 </style>

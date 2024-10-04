@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import router from "@/router";
+import { RouterLink } from "vue-router";
 import HeaderComponent from "@/components/HeaderComponent.vue";
 
 const navItems = ['Articles', 'Snippets', 'About', 'Resources']
@@ -15,7 +16,7 @@ const navItems = ['Articles', 'Snippets', 'About', 'Resources']
         nav
             ul.flex.justify-between.flex-wrap.text-2xl
                 li(v-for="navItem in navItems" :key="navItem").mx-2
-                    | #[a(@click='router.push({ name: navItem })') {{ navItem }}]
+                    router-link(:to="{ name: navItem }") {{ navItem }}
 </template>
 
 <style lang="sass">

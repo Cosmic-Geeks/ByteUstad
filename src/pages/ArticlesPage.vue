@@ -19,9 +19,9 @@ page-layout
     h1 Browse Articles
     h2 Tags
     p.tags
-        | #[a(@click="router.push({name: 'Articles'})") All]
+        router-link(:to="{name: 'Articles'}") All
         template(v-for="tag in tags" :key="tag")
-            a(@click="query.tag === tag ? router.push({name: 'Articles'}) : router.push({name: 'Articles', query: { tag: tag }})"
+            router-link(:to="query.tag === tag ? {name: 'Articles'} : {name: 'Articles', query: { tag: tag }}"
                 :class="{ active: query.tag === tag }") {{ tag }}
     template(v-for="(articles, category) in articlesByCategory" :key="category")
         h2 {{ category }}

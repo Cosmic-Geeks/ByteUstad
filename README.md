@@ -56,3 +56,18 @@ state: () => ({
 2. Make sure that tags are spelled correctly (only then will they be grouped together -- casing does matter)
 3. The article will automatically show up in the articles page once it is marked as completed.
 4. Be sure to check out the MDX Documentation for available features (you can use any vue component inside mdx file!)
+5. To add a code block you can do the following
+```
+import {VCodeBlock} from "@wdns/vue-code-block";
+
+# Hello, World!
+
+You can use any component in MDX!
+<VCodeBlock
+    code={'console.log("Hello, World!")'}
+    browserWindow={true}
+    label="Hello, World!"
+    lang={'javascript'}
+/>
+```
+## Format

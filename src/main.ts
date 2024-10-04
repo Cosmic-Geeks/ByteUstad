@@ -15,7 +15,6 @@ fetchArticleRoutes(router);
 
 app.use(router);
 app.use(createPinia());
-app.use(createVCodeBlock({ prismjs: true }));
-app.component('VCodeBlock', );
+app.use(createVCodeBlock({ prismjs: true, theme: 'solarizedlight', prismPlugin: true }));
 app.mount('#app')
 

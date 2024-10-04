@@ -9,7 +9,7 @@ const currentRoute = computed(() => router.currentRoute.value.name);
 nav.flex.items-center.text-xl
     ul.flex.justify-between.flex-wrap
         li(v-for="navItem in navItems" :key="navItem" :class="{active: currentRoute === navItem }").mx-2
-            | #[a(@click='router.push({ name: navItem })') {{ navItem }}]
+            router-link(:to='{ name: navItem }') {{ navItem }}
 </template>
 
 <style scoped lang="sass">

@@ -25,5 +25,6 @@ page-layout
 </template>
 
 <style scoped lang="sass">
-
+:deep(.v-code-block)
+    grid-column: -1
 </style>

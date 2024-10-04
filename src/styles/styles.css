@@ -47,6 +47,7 @@ article > h6 {
 
 article > h1,
 article > h2,
+article > code,
 article aside {
     text-align: right;
     grid-column: 1;
