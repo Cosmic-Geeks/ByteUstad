@@ -7,7 +7,7 @@ const navItems = ['Articles', 'Snippets', 'About', 'Resources']
 </script>
 
 <template lang="pug">
-.flex.justify-center.items-center.min-h-screen
+.flex.justify-center.items-center.min-h-screen.dotted-background
     #welcome.flex.flex-col.space-y-4
         h1.text-center.text-6xl
             | Welcome To ByteUstad
@@ -19,7 +19,18 @@ const navItems = ['Articles', 'Snippets', 'About', 'Resources']
                     router-link(:to="{ name: navItem }") {{ navItem }}
 </template>
 
-<style lang="sass">
+<style scoped lang="sass">
+.dotted-background
+    --dot-bg: white
+    --dot-color: darkslategray
+    --dot-size: 1px
+    --dot-space: 22px
+    $dot-bg: var(--dot-bg)
+    $dot-space: var(--dot-space)
+    $dot-size: var(--dot-size)
+    $dot-color: var(--dot-color)
+
+    background: linear-gradient(90deg, $dot-bg calc($dot-space - $dot-size), transparent 1%) center / $dot-space $dot-space, linear-gradient($dot-bg calc($dot-space - $dot-size), transparent 1%) center / $dot-space $dot-space, $dot-color
 #welcome
     h1
         font-variation-settings: "MONO" 0, "CASL" 0.5, "wght" 500, "slnt" 0, "CRSV" 0.5
