@@ -1,9 +1,7 @@
 import {defineStore} from "pinia";
-import type {Article, Articles} from "@/types/articles";
-import ArticleStatusEnum from "@/types/ArticleStatusEnum";
+import type {Article, Articles} from "@/types/Articles";
 import Authors from "@/types/Authors";
-import articleStatusEnum from "@/types/ArticleStatusEnum";
-import authors from "@/types/Authors";
+import articleStatusEnum from "@/types/StatusEnum";
 import {not} from "@/utils";
 
 const useArticlesStore = defineStore('articles', {

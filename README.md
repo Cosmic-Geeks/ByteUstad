@@ -16,8 +16,8 @@ once changes are commited and pushed to `main` they will be deployed automatical
     1. If you write in a `md` file before uploading change the extension to `mdx`
     2. The file name should not contain spaces and should be camel cased (important)
 2. Upload or Push the article to `src/pages/articles`
-3. Go to `src/stores/articles.ts` and add metadata information about the articles (see below).
-    1. The key is the name of the file without `.mdx`. For example, if the file was named `HelloWorld.mdx` you will use `HelloWorld` as key in `articles.ts`
+3. Go to `src/stores/Articles.ts` and add metadata information about the articles (see below).
+    1. The key is the name of the file without `.mdx`. For example, if the file was named `HelloWorld.mdx` you will use `HelloWorld` as key in `Articles.ts`
     2. If the article is marked as `completed` it will automatically show up in `/articles` page.
 
 ### Example
@@ -30,10 +30,10 @@ This is the article!
 ```
 
 2. Upload the file to `src/pages/articles` using GitHub or Git (make sure it has `mdx` extension).
-3. Add Metadata to `src/stores/articles.ts`. Since filename was `HelloWorld.mdx` the key is `HelloWorld`:
+3. Add Metadata to `src/stores/Articles.ts`. Since filename was `HelloWorld.mdx` the key is `HelloWorld`:
 
 ```ts
-import articleStatusEnum from "./ArticleStatusEnum";
+import articleStatusEnum from "./StatusEnum";
 
 state: () => ({
    articles: {

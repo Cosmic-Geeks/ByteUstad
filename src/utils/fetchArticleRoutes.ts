@@ -9,7 +9,6 @@ function fetchArticleRoutes(router: typeof Router) {
         const name = key.split("/").pop()?.replace(".mdx", "");
         router.addRoute('Article', {
             path: `/article/${name}`,
-            // component: articleComponents[key],
             component: MdxComponent,
             props: {
                 mdxComponent: articleComponents[key],

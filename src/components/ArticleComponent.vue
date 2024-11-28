@@ -2,7 +2,7 @@
 import router from "@/router";
 import {formatDate} from "@/utils";
 import {computed, defineProps, ref} from "vue";
-import type {Article} from "@/types/articles";
+import type {Article} from "@/types/Articles";
 import {useRoute} from "vue-router";
 import { RouterLink } from "vue-router";
 

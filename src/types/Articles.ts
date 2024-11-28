@@ -1,4 +1,4 @@
-import type {ArticleStatusType} from "@/types/ArticleStatusEnum";
+import type {ArticleStatusType} from "@/types/StatusEnum";
 
 export interface Article {
     title: string;

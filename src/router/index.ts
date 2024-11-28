@@ -1,11 +1,10 @@
 import {createRouter, createWebHistory} from 'vue-router'
 import HomePage from "@/pages/HomePage.vue";
-import ArticlesPage from "@/pages/ArticlesPage.vue";
 import ArticlePage from "@/pages/ArticlePage.vue";
 import SnippetsPage from "@/pages/SnippetsPage.vue";
 import ResourcesPage from "@/pages/ResourcesPage.vue";
-import NotFoundPage from "@/pages/NotFoundPage.vue";
 import AboutPage from "@/pages/AboutPage.vue";
+import ArticlesPage from "@/pages/ArticlesPage.vue";
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -39,7 +38,7 @@ const router = createRouter({
             "path": "/article",
             "component": ArticlePage,
             "name": "Article",
-        }
+        },
     ]
 })
 
